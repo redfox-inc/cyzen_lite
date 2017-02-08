@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="jquery.mobile.css" />
+<style type="text/css">
+    .fontM {font-size:133%;} .fontS {font-size:83%;} .fontL {font-size:200%;}#fontChange {_overflow:hidden;_zoom:1;}#fontChange li{float:left;display:block;width:30px;height:30px;padding:0;text-align:center;line-height:30px;margin-right:5px;border:1px solid #ccc;-moz-box-shadow: 1px 1px 1px #666;-webkit-box-shadow: 1px 1px 1px #666;text-shadow: 1px 1px 1px #ccc;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); background: -moz-linear-gradient(top, #ffffff, #f0f0f0);}#fontChange li:hover{background-color:#333;color:#fff;cursor:pointer;background:-webkit-gradient(linear, left top, left bottom, from(#999), to(#333)); background: -moz-linear-gradient(top, #999, #333);}
+    .cap{
+        text-align: right;
+    }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function(){
+  $.mobile.ajaxEnabled = false;
+  $.mobile.ajaxLinksEnabled = false;
+  $.mobile.ajaxFormsEnabled = false;
+});
+</script>
+<script type="text/javascript" src="jquery.mobile.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    var history = $.cookie('fontSize');
+
+    var elm = $('#content');
+
+    (!history)? elm.addClass('fontM'):elm.addClass(history);
+    $('li','#fontChange').click(function(){
+        var setFontSize = this.id;
+        $.cookie('fontSize', setFontSize);
+        elm.removeClass().addClass(setFontSize);
+    });
+});
+</script>
+</head>
+<body>
+
+<div id="parts01" data-role="page" data-theme="d">
+  <div data-role="header"> <a data-role="button" href="index.html" rel="external">戻る</a>
+    <h1>ホーム画面について</h1>
+  </div>
+  <div id="content" data-role="content">
+    ホーム画面はcyzenを利用するためのスタートの画面です。
+    <div class="cap"><img src="img/parts/parts01_01.jpg" /></div><br/>
+①表示条件変更<br/>
+地図上に表示する、履歴情報、移動線の表示・非表示を変更することができます。<br/>
+<br/>
+②ヘルプ<br/>
+アプリの操作方法を確認することができます。<br/>
+<br/>
+③地図エリア<br/>
+現在位置、履歴情報が表示されます。地図エリアを指で動かし、表示場所を変更することもできます。<br/>
+<br/>
+④行動ボタン<br/>
+「今何をしているか」を報告できます。また、右側のコメントエリアを押すと、140文字までのコメントを添付することができます。<br/>
+<br/>
+⑤現在位置表示ボタン<br/>
+現在位置を中心にします。<br/>
+<br/>
+⑥ズームボタン<br/>
+地図のズームアウト/ズームインを行います。<br/>
+<br/>
+⑦メニューボタン<br/>
+メニュー画面に移動します。<br/>
+<br/>
+    <a data-role="button" href="index.html" rel="external">戻る</a>
+    <img src="img/footer/copyright.png" alt="Copyright &copy; redfox,Inc. All Rights Reserved." width="275" height="12">
+  </div>
+</div>
+
+</body>
+</html>

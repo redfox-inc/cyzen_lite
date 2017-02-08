@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="jquery.mobile.css" />
+<style type="text/css">
+    .fontM {font-size:133%;} .fontS {font-size:83%;} .fontL {font-size:200%;}#fontChange {_overflow:hidden;_zoom:1;}#fontChange li{float:left;display:block;width:30px;height:30px;padding:0;text-align:center;line-height:30px;margin-right:5px;border:1px solid #ccc;-moz-box-shadow: 1px 1px 1px #666;-webkit-box-shadow: 1px 1px 1px #666;text-shadow: 1px 1px 1px #ccc;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); background: -moz-linear-gradient(top, #ffffff, #f0f0f0);}#fontChange li:hover{background-color:#333;color:#fff;cursor:pointer;background:-webkit-gradient(linear, left top, left bottom, from(#999), to(#333)); background: -moz-linear-gradient(top, #999, #333);}
+    .cap{
+        text-align: center;
+    }
+    .cap_img{
+        width: 290px;
+        height: 435px;
+    }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function(){
+  $.mobile.ajaxEnabled = false;
+  $.mobile.ajaxLinksEnabled = false;
+  $.mobile.ajaxFormsEnabled = false;
+});
+</script>
+<script type="text/javascript" src="jquery.mobile.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    var history = $.cookie('fontSize');
+
+    var elm = $('#content');
+
+    (!history)? elm.addClass('fontM'):elm.addClass(history);
+    $('li','#fontChange').click(function(){
+        var setFontSize = this.id;
+        $.cookie('fontSize', setFontSize);
+        elm.removeClass().addClass(setFontSize);
+    });
+});
+</script>
+</head>
+<body>
+
+<div id="parts02" data-role="page" data-theme="d">
+  <div data-role="header"> <a data-role="button" href="index.html" rel="external">戻る</a>
+    <h1>メニュー画面について</h1>
+  </div>
+  <div id="content" data-role="content">
+    メニュー画面より、cyzenの各画面に移動することができます。
+    <div class="cap"><img src="img/parts/parts02_01.png" class="cap_img"/></div><br/>
+<br/>
+①ホーム画面<br/>
+報告を行う画面に移動します。<br/>
+<br/>
+②履歴画面<br/>
+自分およびメンバーの報告履歴の閲覧を行う画面に移動します。<br/>
+<br/>
+③メンバー画面<br/>
+メンバーの現在の位置の閲覧を行う画面に移動します。<br/>
+<br/>
+④お知らせ画面<br/>
+サービス運営者からのメッセージを閲覧する画面に移動します。<br/>
+<br/>
+⑤設定画面<br/>
+アプリの動作に関連する各設定を行う画面に移動します。<br/>
+<br/>
+    <a data-role="button" href="index.html" rel="external">戻る</a>
+    <img src="img/footer/copyright.png" alt="Copyright &copy; redfox,Inc. All Rights Reserved." width="275" height="12">
+  </div>
+</div>
+
+</body>
+</html>

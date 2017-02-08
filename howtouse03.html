@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="jquery.mobile.css" />
+<style type="text/css">
+    .fontM {font-size:133%;} .fontS {font-size:83%;} .fontL {font-size:200%;}#fontChange {_overflow:hidden;_zoom:1;}#fontChange li{float:left;display:block;width:30px;height:30px;padding:0;text-align:center;line-height:30px;margin-right:5px;border:1px solid #ccc;-moz-box-shadow: 1px 1px 1px #666;-webkit-box-shadow: 1px 1px 1px #666;text-shadow: 1px 1px 1px #ccc;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); background: -moz-linear-gradient(top, #ffffff, #f0f0f0);}#fontChange li:hover{background-color:#333;color:#fff;cursor:pointer;background:-webkit-gradient(linear, left top, left bottom, from(#999), to(#333)); background: -moz-linear-gradient(top, #999, #333);}
+    .cap{
+        text-align: center;
+    }
+    .cap_img{
+        width: 290px;
+        height: 435px;
+    }
+    .separate_img{
+        width: 148px;
+        height: 31px;
+    }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function(){
+  $.mobile.ajaxEnabled = false;
+  $.mobile.ajaxLinksEnabled = false;
+  $.mobile.ajaxFormsEnabled = false;
+});
+</script>
+<script type="text/javascript" src="jquery.mobile.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    var history = $.cookie('fontSize');
+
+    var elm = $('#content');
+
+    (!history)? elm.addClass('fontM'):elm.addClass(history);
+    $('li','#fontChange').click(function(){
+        var setFontSize = this.id;
+        $.cookie('fontSize', setFontSize);
+        elm.removeClass().addClass(setFontSize);
+    });
+});
+</script>
+</head>
+<body>
+
+<div id="howtouse03" data-role="page" data-theme="d">
+  <div data-role="header"> <a data-role="button" href="index.html" rel="external">戻る</a>
+    <h1>報告にコメントを記入する</h1>
+  </div>
+  <div id="content" data-role="content">
+ホーム画面で行動ボタンの右側を押すと、コメント記入画面に移動します。入力後、OKボタンを押して送信が完了します。
+<br/>
+    <div class="cap"><img src="img/howtouse/howtouse03_01.png" class="cap_img" /></div><br/>
+    <div class="cap"><img src="img/howtouse/howtouse03_02.png" class="separate_img" /></div><br/>
+    <div class="cap"><img src="img/howtouse/howtouse03_03.png" class="cap_img" /></div><br/>
+    <a data-role="button" href="index.html" rel="external">戻る</a>
+    <img src="img/footer/copyright.png" alt="Copyright &copy; redfox,Inc. All Rights Reserved." width="275" height="12">
+  </div>
+</div>
+
+</body>
+</html>

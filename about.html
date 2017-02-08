@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="jquery.mobile.css" />
+<style type="text/css">.fontM {font-size:133%;} .fontS {font-size:83%;} .fontL {font-size:200%;}#fontChange {_overflow:hidden;_zoom:1;}#fontChange li{float:left;display:block;width:30px;height:30px;padding:0;text-align:center;line-height:30px;margin-right:5px;border:1px solid #ccc;-moz-box-shadow: 1px 1px 1px #666;-webkit-box-shadow: 1px 1px 1px #666;text-shadow: 1px 1px 1px #ccc;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); background: -moz-linear-gradient(top, #ffffff, #f0f0f0);}#fontChange li:hover{background-color:#333;color:#fff;cursor:pointer;background:-webkit-gradient(linear, left top, left bottom, from(#999), to(#333)); background: -moz-linear-gradient(top, #999, #333);}</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function(){
+  $.mobile.ajaxEnabled = false;
+  $.mobile.ajaxLinksEnabled = false;
+  $.mobile.ajaxFormsEnabled = false;
+});
+</script>
+<script type="text/javascript" src="jquery.mobile.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    var history = $.cookie('fontSize');
+
+    var elm = $('#content');
+
+    (!history)? elm.addClass('fontM'):elm.addClass(history);
+    $('li','#fontChange').click(function(){
+        var setFontSize = this.id;
+    	$.cookie('fontSize', setFontSize);
+        elm.removeClass().addClass(setFontSize);
+    });
+});
+</script>
+
+</head>
+<body>
+
+<div id="about" data-role="page" data-theme="d">
+  <div data-role="header"> <a data-role="button" href="index.html" rel="external">戻る</a>
+    <h1>アプリcyzen</h1>
+  </div>
+  <div id="content" data-role="content"> <img src="img/gpsp/txt_01.png" alt="スマートフォンの位置情報を活用し現場から業務報告や情報共有を簡単に実現したサービスです。" width="292" height="76" class="ttl" />
+    <p>cyzenは、どこにいても出退勤や業務内容を簡単に報告できるスマートフォン用アプリです。時間、位置情報も同時にワンタップで送信できるので、営業だけでなく、訪問医療やメンテ業務、運送やヘルパー・介護業など様々な業種で利用されています。</p>
+<br/><br/>
+    <a data-role="button" href="index.html" rel="external">戻る</a>
+    <img src="img/footer/copyright.png" alt="Copyright &copy; redfox,Inc. All Rights Reserved." width="275" height="12"> </div>
+  </div>
+</div>
+
+</body>
+</html>

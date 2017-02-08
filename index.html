@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="jquery.mobile.css" />
+<style type="text/css">.fontM {font-size:133%;} .fontS {font-size:83%;} .fontL {font-size:200%;}#fontChange {_overflow:hidden;_zoom:1;}#fontChange li{float:left;display:block;width:30px;height:30px;padding:0;text-align:center;line-height:30px;margin-right:5px;border:1px solid #ccc;-moz-box-shadow: 1px 1px 1px #666;-webkit-box-shadow: 1px 1px 1px #666;text-shadow: 1px 1px 1px #ccc;background:-webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f0f0f0)); background: -moz-linear-gradient(top, #ffffff, #f0f0f0);}#fontChange li:hover{background-color:#333;color:#fff;cursor:pointer;background:-webkit-gradient(linear, left top, left bottom, from(#999), to(#333)); background: -moz-linear-gradient(top, #999, #333);}</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.mobile.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    var history = $.cookie('fontSize');
+
+    //適用する箇所を指定。今回は部分的に#test内のpに
+    var elm = $('#content');
+
+    (!history)? elm.addClass('fontM'):elm.addClass(history);
+    $('li','#fontChange').click(function(){
+        var setFontSize = this.id;
+        $.cookie('fontSize', setFontSize);
+        elm.removeClass().addClass(setFontSize);
+    });
+});
+</script>
+</head>
+<body>
+<div id="home" data-role="page" data-theme="d">
+  <div data-role="header" data-theme="c">
+    <h1 style="text-align:left; margin: .6em 20px .8em;">
+      <img src="img/gpsp/logo.png" alt="次世代ビジネスツール cyzen" height="47">
+    </h1>
+  </div>
+
+  <div id="content" data-role="content">
+    <ul data-role="listview">
+      <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">まず始めに</li>
+      <li><a href="about.html" rel="external">cyzenでできること</a></li>
+      <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">アプリの初期設定</li>
+      <li><a href="start02.html" rel="external">グループに参加する</a></li>
+      <li><a href="start03.html" rel="external">ログインする</a></li>
+      <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">各部の説明</li>
+      <li><a href="parts01.html" rel="external">ホーム画面について</a></li>
+      <li><a href="parts02.html" rel="external">メニュー画面について</a></li>
+      <li><a href="parts03.html" rel="external">地図アイコンについて</a></li>
+      <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">基本的な使い方</li>
+      <li><a href="howtouse01.html" rel="external">報告を行う</a></li>
+      <li><a href="howtouse02.html" rel="external">報告を取り消す</a></li>
+      <li><a href="howtouse03.html" rel="external">コメントを記入する</a></li>
+      <li><a href="howtouse08.html" rel="external">履歴を見る</a></li>
+      <li><a href="howtouse09.html" rel="external">メンバーの状況を見る</a></li>
+    </ul>
+  </div>
+  <div style="text-align:center;padding-top:20px; padding-bottom:20px;">
+    <img src="img/footer/copyright.png" alt="Copyright &copy; redfox,Inc. All Rights Reserved." width="275" height="12">
+  </div>
+</div>
+<!--[if !IE]>howtouse END<![endif]-->
+
+</body>
+</html>
